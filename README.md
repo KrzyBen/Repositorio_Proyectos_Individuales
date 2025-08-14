@@ -1,9 +1,7 @@
 # 🚀 Monorepositorio de Proyectos Personales
 
 Este repositorio contiene **10 proyectos** desarrollados para **aprender nuevos lenguajes, frameworks y conceptos**, y para **generar un portafolio demostrable**.  
-Los proyectos están organizados de **más fácil a más difícil** para mostrar progresión de habilidades.
-
-> ⚠️ Algunos proyectos están en desarrollo o experimentales.
+Los proyectos están organizados de **más fácil a más difícil** para mostrar mi progresión de habilidades.
 
 ---
 
