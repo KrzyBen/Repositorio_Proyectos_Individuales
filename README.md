@@ -24,6 +24,16 @@ Los proyectos están organizados de **más fácil a más difícil** para mostrar
 
 ---
 
+## 🏗️ Estado de los Proyectos
+
+### ✅ Proyectos terminados
+- 
+
+### ⚠️ Proyecto en desarrollo
+- 🧮 Calculadora de consola
+
+---
+
 ## 💡 Detalles
 
 - Cada proyecto está en su **propia carpeta** con código y documentación.
