@@ -9,7 +9,7 @@ Los proyectos están organizados de **más fácil a más difícil** para mostrar
 
 | # | Proyecto | 🌐 Lenguaje / Framework | 🔰 Nivel | 🧠 Conocimientos principales |
 |---|----------|-----------------------|----------|-----------------------------|
-| 1 | 🧮 **Calculadora de consola** | Python / Java / JavaScript | 🟢 Fácil | Variables, funciones, operadores, condicionales, manejo de errores |
+| 1 | 🧮 **Calculadora** | Python / Java / JavaScript | 🟢 Fácil | Variables, funciones, operadores, condicionales, manejo de errores |
 | 2 | ✅ **To-Do List** | JS + HTML/CSS o Python (Tkinter) | 🟢 Fácil | DOM, eventos, almacenamiento local, interfaz simple |
 | 3 | 📝 **Blog personal básico** | Node.js/Express o Django | 🟡 Fácil-Medio | CRUD, rutas, plantillas, bases de datos (SQLite/MySQL) |
 | 4 | 🎮 **Juego simple 2D** (Snake / Tic-Tac-Toe) | Python (Pygame) o JS (Canvas) | 🟡 Medio | Bucles, eventos, gráficos, lógica de juego |
