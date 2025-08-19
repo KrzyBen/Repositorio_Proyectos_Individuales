@@ -6,20 +6,29 @@ import javax.swing.*;
 public class CalculadoraAvanzada extends JFrame implements ActionListener {
     private final JTextField pantalla;
     private final StringBuilder entrada = new StringBuilder();
-    private boolean resultadoMostrado = false; // <- nuevo estado
+    private boolean resultadoMostrado = false; 
+    private final JComboBox<String> historial; // <- historial de operaciones
 
     public CalculadoraAvanzada() {
         setTitle("Calculadora Avanzada");
-        setSize(350, 450);
+        setSize(400, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
+        // Pantalla
         pantalla = new JTextField();
         pantalla.setEditable(false);
         pantalla.setHorizontalAlignment(JTextField.RIGHT);
         pantalla.setFont(new Font("Arial", Font.BOLD, 24));
         add(pantalla, BorderLayout.NORTH);
 
+        // Historial (debajo de la pantalla)
+        historial = new JComboBox<>();
+        historial.setFont(new Font("Arial", Font.PLAIN, 14));
+        historial.setEditable(false);
+        add(historial, BorderLayout.SOUTH);
+
+        // Panel de botones
         JPanel panelBotones = new JPanel();
         panelBotones.setLayout(new GridLayout(5, 4, 5, 5));
 
@@ -64,10 +73,18 @@ public class CalculadoraAvanzada extends JFrame implements ActionListener {
             case "=" -> {
                 try {
                     double resultado = evaluarExpresion(entrada.toString());
-                    pantalla.setText(formatoNumero(resultado));
+                    String resultadoStr = formatoNumero(resultado);
+
+                    // Mostrar en pantalla
+                    pantalla.setText(resultadoStr);
+
+                    // Guardar en historial
+                    historial.addItem(entrada.toString() + " = " + resultadoStr);
+
+                    // Preparar nueva operación
                     entrada.setLength(0);
-                    entrada.append(resultado);
-                    resultadoMostrado = true; // <- marcamos que hay un resultado
+                    entrada.append(resultadoStr);
+                    resultadoMostrado = true;
                 } catch (Exception ex) {
                     pantalla.setText("Error");
                     entrada.setLength(0);
@@ -76,13 +93,11 @@ public class CalculadoraAvanzada extends JFrame implements ActionListener {
             }
 
             default -> {
-                // Si el último fue un resultado y ahora viene un número -> limpiar
                 if (resultadoMostrado && "0123456789.".contains(comando)) {
                     entrada.setLength(0);
                     pantalla.setText("");
                     resultadoMostrado = false;
                 }
-                // Si el último fue un resultado y ahora viene un operador -> continuar
                 if (resultadoMostrado && "+-*/".contains(comando)) {
                     resultadoMostrado = false;
                 }
@@ -93,7 +108,7 @@ public class CalculadoraAvanzada extends JFrame implements ActionListener {
         }
     }
 
-    // Evaluación básica izquierda a derecha (sin prioridad)
+    // Evaluación básica izquierda a derecha (sin prioridad de operadores)
     private double evaluarExpresion(String expresion) {
         StringTokenizer tokens = new StringTokenizer(expresion, "+-*/", true);
         double resultado = Double.parseDouble(tokens.nextToken());
